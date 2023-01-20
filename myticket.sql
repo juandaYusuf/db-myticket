@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 18, 2023 at 09:28 AM
+-- Generation Time: Jan 20, 2023 at 01:27 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -62,19 +62,6 @@ CREATE TABLE `pembelian` (
   `tanggal` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `pembelian`
---
-
-INSERT INTO `pembelian` (`id`, `user_id`, `tiket_id`, `jumlah_penumpang`, `tanggal`) VALUES
-(3, 17, 10, 0, '2022-11-30 00:00:00'),
-(4, 16, 4, 0, '2022-11-30 00:00:00'),
-(5, 15, 16, 0, '2022-11-30 00:00:00'),
-(6, 18, 14, NULL, '2022-12-18 00:00:00'),
-(7, 19, 15, NULL, '2022-12-20 00:00:00'),
-(8, 18, 10, NULL, '2022-12-21 00:00:00'),
-(9, 18, 9, NULL, '2022-12-21 00:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -92,7 +79,8 @@ CREATE TABLE `saldo_user` (
 --
 
 INSERT INTO `saldo_user` (`id`, `user_id`, `saldo`) VALUES
-(1, 18, 5000);
+(1, 18, 5000),
+(2, 17, 3000);
 
 -- --------------------------------------------------------
 
@@ -150,6 +138,44 @@ INSERT INTO `tiket` (`id`, `nama_kereta`, `jumlah_gerbong`, `kelas`, `harga`, `s
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `topup_user`
+--
+
+CREATE TABLE `topup_user` (
+  `id` int(11) NOT NULL,
+  `soal` varchar(500) DEFAULT NULL,
+  `correct_answer` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `topup_user`
+--
+
+INSERT INTO `topup_user` (`id`, `soal`, `correct_answer`) VALUES
+(1, 'Penyelesaian permasalahan algoritma dengan menggunakan alat bantu sistem komputer melibatkan beberapa tahapan, kecuali...', 'Estimasi program'),
+(2, 'Suatu langkah untuk menyelesaikan sebuah masalah secara logis dan sistematis adalah...', 'Algoritma'),
+(3, 'Pseudocode yang dipakai dalam penulisan algoritma adalah...', 'Bahasa sehari-hari dan terstruktur'),
+(4, 'Alat bantu untuk mengorganisasikan hasil analis adalah dengan...', 'Input - Proses - Output'),
+(5, 'Tipe data apakah yang bisa digunakan jika int x = 9.90 ', 'Float'),
+(6, 'Setiap perintah dalam projek C++ selalu diakhiri dengan...', 'titik koma (;)'),
+(7, 'Suatu program yang memiliki statement serta instruksi yang bermaksud untuk tujuan tertentu disebut...', 'Fungsi'),
+(8, 'Bagian dari program yang memiliki peran sangat penting yang akan mempengaruhi setiap instruksi jalannya program adalah...', 'Tipe data'),
+(9, 'Untuk menyatakan fungsi utama berakhir di running dan dijalankan tanpa adanya debug atau eror adalah...', 'return0'),
+(10, 'Cin dalam program C++ berati...', 'Untuk menginput data'),
+(11, 'C++ dikembangkan oleh...', 'Bjarne Stroustrup'),
+(12, 'Pemesanan tempat memori variable dan tipe data atau fungsi tertentu disebut...', 'Deklarasi'),
+(13, 'Urutan instruksi untuk menyelesaikan masalah yang telah disusun secara logis dan sistematis dengan menggunakan bahasa pemrograman disebut...', 'Pemrograman'),
+(14, 'Data yang harus diberikan pada komputer disebut...', 'Input'),
+(15, 'Untuk menampilkan hasil yang sudah di input pada program c++ disebut...', 'Output'),
+(16, 'Suatu tahapan atau bagan alir yang berfungsi untuk menggambarkan penyelesaian masalah scara sederhana dan jelas adalah...', 'Flowchart'),
+(17, 'Tipe data yang menyatakan TRUE FALSE dalam sebuah program adalah...', 'Boolean'),
+(18, 'Struktur dasar dari algoritma pemrograman adalah...', 'Sequence, Selection dan Looping'),
+(19, 'Sebuah perintah atau struktur yang terus mengulang agar mencapai suatu kondisi adalah...', 'Looping'),
+(20, 'Struktur ini memiliki dua kondisi if dan else untuk menentukan suatu kondisi adalah...', 'Selection');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -172,7 +198,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `fullname`, `email`, `alamat`, `noTelepon`, `password`, `jenisKelamin`, `profilPhoto`, `profilBannerPhoto`) VALUES
 (15, 'Asep Rante ngabret', 'asep@gmail.com', 'Jl. Sekeloa Utara 2 No.3, Sekeloa, Kecamatan Coblong, Kota Bandung, Jawa Barat 40134 (lantai 2 ruang no 8)', '0986777656543', 'asep123456', 'Laki-laki', 'http://127.0.0.1:8000/static/images/730a4f17bf7f797084e2.jpeg', 'http://127.0.0.1:8000/static/images/a80f58d729e9baddf3af.jpg'),
 (16, 'Julaiha Aduhay ', 'julaiha@gmail.com', 'Jl. Sekeloa Utara 2 No.3, Sekeloa, Kecamatan Coblong, Kota Bandung, Jawa Barat 40134 (lantai 2 ruang no 8)', '0868765643532', 'julaiha123456', 'Perempuan', 'http://127.0.0.1:8000/static/images/2066e7cd1c7f9304b832.jpg', 'http://127.0.0.1:8000/static/images/b6ef3b3f7989f5c4d7de.png'),
-(17, 'Arif rahman Hakim', 'arifrahman@gmail.com', 'Jl. Raya Plered, Plered, Kec. Plered, Kabupaten Purwakarta, Jawa Barat ', '089123456789', 'arif123456', 'Laki-laki', 'http://127.0.0.1:8000/static/images/d2fd282a3614ab8dd3dd.jpg', 'http://127.0.0.1:8000/static/images/bd4e68ce678be571357b.jpg'),
+(17, 'Arif rahman Hakim', 'arifrahman@gmail.com', 'Jl. Raya Plered, Plered, Kec. Plered, Kabupaten Purwakarta, Jawa Barat ', '089123456789', 'arif123456', 'Laki-laki', 'http://127.0.0.1:8000/static/images/5aa03b0346c363cd3f8a.png', 'http://127.0.0.1:8000/static/images/159a95dff9eaef17eb91.jpg'),
 (18, 'charli marcell Martinezz', 'charlimarcell@gmail.com', 'Jl. Sekeloa Utara 2 No.3, Sekeloa, Kecamatan Coblong, Kota Bandung, Jawa Barat 40134 (lantai 2 ruang no 8)', '098765466543', 'charli123456', 'Laki-laki', 'http://127.0.0.1:8000/static/images/2e934fd585bcdc5d8762.jpeg', 'http://127.0.0.1:8000/static/images/0b0c13317a4de15ef70e.png'),
 (19, 'Adinda cute', 'adinda@gmail.com', 'Jln.raya, Muara Sikabaluan, Kec. Siberut Utara, Kabupaten Kepulauan Mentawai, Sumatera Barat 25395', '087656543454', 'adinda123456', 'Perempuan', 'http://127.0.0.1:8000/static/images/2f7cfbc94ad650ad8262.jpg', 'http://127.0.0.1:8000/static/images/9d3910b6a65ed594cf6f.jpg');
 
@@ -209,6 +235,12 @@ ALTER TABLE `tiket`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `topup_user`
+--
+ALTER TABLE `topup_user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -228,19 +260,25 @@ ALTER TABLE `artikels`
 -- AUTO_INCREMENT for table `pembelian`
 --
 ALTER TABLE `pembelian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `saldo_user`
 --
 ALTER TABLE `saldo_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tiket`
 --
 ALTER TABLE `tiket`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT for table `topup_user`
+--
+ALTER TABLE `topup_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users`
